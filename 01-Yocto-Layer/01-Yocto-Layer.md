@@ -15,7 +15,7 @@ sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpat
 ```bash
 mkdir yocto_tutorial
 cd yocto_tutorial
-git clone git://git.yoctoproject.org/poky -b kirkstone
+git clone git://git.yoctoproject.org/poky -b dunfell
 ```
 
 3. Thiết lập môi trường:

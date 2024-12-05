@@ -53,7 +53,7 @@ int main() {
 1. Thêm layer meta-raspberrypi vào cấu hình build
 - Tải layer
 ```bash
-git clone git://git.yoctoproject.org/meta-raspberrypi
+git clone git://git.yoctoproject.org/meta-raspberrypi -b dunfell
 ```
 - Thêm layer vào cấu hình build
 ```bash
@@ -75,11 +75,15 @@ IMAGE_INSTALL:append = " helloworld"
 ```
 2. Tiến hành build image:
 ```bash
-bitbake core-image-base
+bitbake core-image-minimal
 ```
 ### Chạy trên Raspberry pi 4
 1. Sau khi build xong, tìm file image trong thư mục tmp/deploy/images/raspberrypi4.
 2. Ghi file image ra thẻ SD và gắn vào Raspberry Pi 4.
+Sử dụng lệnh dd để ghi file image:
+```bash
+sudo dd if=build/tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg of=/dev/sdb bs=4M status=progress
+```
 3. Khởi động Raspberry pi 4 và chạy chương trình "Hello World":
 ```bash
 ./helloworld
